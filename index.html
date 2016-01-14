@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="toDoList">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+<script type="text/javascript" src="js/list.js"></script>
+<link rel="stylesheet" href="css/main.css">
+<title>To-Do List</title>
+</head>
+
+<body ng-controller="ItemController as items">
+
+	<header ng-controller="DateController">
+	  <h1>Daily To-Do List</h1>
+	  <p class='date'>{{CurrentDate | date:'MM/dd/yyyy'}}</p>
+	</header>
+	<div class='menu' ng-click='openMenu(); showButtons = !showButtons'>
+		<div class='line'></div>
+		<div class='line'></div>
+		<div class='line'></div>
+	</div>
+	<div class='buttons' ng-show='showButtons'>
+		<button ng-click="clearStorage()">Clear Local Storage</button>
+		<a href="mailto:?subject=To%20Do%20List%20From%20Stark&body=Enter%20your%20list%20here"><button>Email List</button></a>
+		<button ng-click="newList()">Create New List Below</button>
+	</div>
+
+	<section class="listContainer" ng-repeat="i in numLists">
+
+		<header>
+			<ul>
+				<li ng-class="{'current': one}" ng-click="showAll(); one=true; two=false; three=false">All</li>
+				<li ng-class="{'current': two}" ng-click="showCompleted(); one=false; two=true; three=false">Completed</li>
+				<li ng-class="{'current': three}" ng-click="showActive(); one=false; two=false; three=true">Active</li>
+			</ul>
+		</header>
+		<div ng-class="{'green':done, 'clear':!done}" class='show' ng-repeat="item in items.item" ng-controller="EditItemController">
+
+			<input type="checkbox" name="selecter" ng-hide="editThis" ng-click="saveCompleted(); done = !done">
+			<b ng-hide="editThis">{{item.name}}</b>
+			<img ng-hide="editThis" ng-click="removeItem($index)" src="img/minus.svg" alt="remove">
+			<img ng-hide="editThis || done" ng-click="editThis = !editThis" src="img/edit.svg" alt="edit">
+			<textarea ng-show="editThis" ng-model="newText" placeholder="'{{item.name}}'"></textarea><img src="img/check.svg" alt="" ng-click="showNew(); editThis = !editThis"  ng-show="editThis">
+
+		</div>
+
+		<div ng-controller="NewItemController" class='show'>
+			<img class="addImg" ng-click="makeThis = !makeThis" ng-hide="makeThis" src="img/plus.svg" alt="plus">
+			<textarea ng-show="makeThis" ng-model="newItem" placeholder="Thing to do:"></textarea><img src="img/check.svg" alt="" ng-click="addItem(); makeThis = !makeThis"  ng-show="makeThis">
+		</div>
+
+		<div class='redLines'>
+			<div class='redLine'></div>
+			<div class='redLine'></div>
+		</div>
+	</section>
+
+</body>
+</html>

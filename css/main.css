@@ -1,0 +1,160 @@
+* {
+	box-sizing: border-box;
+}
+html {
+	font-family: "Gill Sans", sans-serif;
+	font-weight: 100;
+	background-color: #f5f1f1;
+}
+h1, .date {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 24px;
+}
+.buttons {
+	display: block;
+	margin: -36px auto 10px auto;
+	width: 350px;
+}
+.menu {
+	display: block;
+	margin: 0 auto 23px auto;
+	width: 10px;
+}
+.open {
+	display: block;
+	margin: 0 auto 20px;
+	width: 10px;
+	left: 189px;
+	position: relative;
+}
+.open:hover, .menu:hover {
+	cursor: pointer;
+}
+.line {
+	display: block;
+	margin-bottom: 4px;
+	height: 2px;
+	width: 15px;
+	background-color: black;
+}
+.line:last-of-type {
+	margin-bottom: 0px;
+}
+button {
+	display: inline-block;
+	margin: 0px auto 10px auto;
+	border: none;
+	background-color: #800000;
+	color: white;
+}
+a {
+	text-decoration: none;
+}
+button:hover {
+	cursor: pointer;
+	background-color: white;
+	color: #800000;
+}
+.listContainer {
+	font-family: "Gill Sans", sans-serif;
+	font-weight: 500;
+	color: #8b8f97;
+	position: relative;
+	margin: 0 auto 20px auto;
+	height: 350px;
+	width: 400px;
+	background-color: white;
+	padding: 5px;
+}
+ul {
+	margin: 10px 0px;
+	padding: 0px;
+}
+ul li {
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	width: 32%;
+}
+ul li.current {
+	border-bottom: 3px solid #800000;
+	color: #800000;
+}
+ul li:hover {
+	cursor: pointer;
+	border-bottom: 3px solid #800000;
+	color: #800000;
+}
+.listContainer div {
+	display: none;
+	position: relative;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #e6ebed;
+	padding-bottom: 6px;
+}
+.green {
+	background-color: #d8fae1;
+}
+.listContainer b {
+	position: absolute;
+	left: 52px;
+	margin-top: 3px;
+	font-size: 14px;
+	font-weight: 100;
+	text-transform: capitalize;
+}
+img {
+	display: inline-block;
+	margin-left: 15px;
+	height: 20px;
+	width: 20px;
+}
+
+img:hover {
+	cursor: pointer;
+}
+
+.listContainer div img {
+	float: right;
+}
+
+.listContainer img.addImg {
+	float: none;
+	margin-left: 188px;
+	margin-bottom: -3px;
+}
+
+.listContainer img:last-of-type {
+	margin-left: 10px;
+}
+
+textarea {
+	height: 20px;
+	width: 250px;
+	margin: 2px 0px 2px 60px;
+}
+
+div.show {
+	display: block;
+}
+.listContainer div.redLines {
+	display: block;
+	position: absolute;
+	z-index: 999;
+	top: 37px;
+	left: 35px;
+	height: 322px;
+	width: 10px;
+}
+.listContainer .redLine {
+	display: inline-block;
+	height: 100%;
+	width: 2px;
+	background-color: #efdad4;
+}
+
+
+
+
+
